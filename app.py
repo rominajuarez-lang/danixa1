@@ -1042,66 +1042,7 @@ modelo_mas_usado = (
     else "Sin datos"
 )
 
-# =========================================================
-# MÓDULO VISTA GENERAL EJECUTIVA
-# =========================================================
-if modulo == "📊 Vista General Ejecutiva":
-    st.title("📊 Dashboard Ejecutivo")
-    st.caption("Vista general del desempeño del portafolio: forecast, riesgo de vencimiento y modelos ganadores.")
 
-    total_skus = max(total_skus_tvu, total_skus_forecast)
-    impacto_identificado = ahorro_total + valor_tvu_riesgo
-
-    c1, c2, c3, c4, c5 = st.columns(5)
-
-    c1.metric("SKU evaluados", f"{total_skus:,}")
-    c2.metric("Ahorro Potencial Total", f"S/ {ahorro_total:,.0f}")
-    c3.metric("Valor en Riesgo TVU", f"S/ {valor_tvu_riesgo:,.0f}")
-    c4.metric("Impacto Económico Identificado", f"S/ {impacto_identificado:,.0f}")
-    c5.metric("Modelo más utilizado", modelo_mas_usado)
-
-    st.divider()
-
-    col_a, col_b = st.columns(2)
-
-    with col_a:
-        st.subheader("📈 Ahorro potencial por forecast")
-
-        if df_ahorro_forecast.empty:
-            st.info(
-                "No se calculó ahorro potencial. Para activarlo, el Excel debe incluir "
-                "Forecast_Comercial con date, product_id y forecast_company, y la hoja Datos debe tener unit_value o unit_cost."
-            )
-        else:
-            st.plotly_chart(
-                grafico_ahorro_forecast(df_ahorro_forecast),
-                use_container_width=True,
-            )
-
-    with col_b:
-        st.subheader("⚠️ Valor en riesgo por vencimiento")
-
-        if resumen_vencimientos.empty or valor_tvu_riesgo <= 0:
-            st.info("No hay productos en riesgo alto o medio.")
-        else:
-            st.plotly_chart(
-                grafico_tvu_alto_medio(resumen_vencimientos),
-                use_container_width=True,
-            )
-
-    st.divider()
-
-    st.subheader("🧠 Distribución de modelos ganadores")
-
-    if resumen_mejores_exec.empty:
-        st.info("No hay métodos ganadores disponibles.")
-    else:
-        st.plotly_chart(
-            grafico_modelos_ganadores(df_comparacion),
-            use_container_width=True,
-        )
-
-    st.stop()
 # =========================================================
 # MÓDULO VISTA GENERAL EJECUTIVA
 # =========================================================
