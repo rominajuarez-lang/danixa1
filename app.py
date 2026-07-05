@@ -1045,23 +1045,6 @@ modelo_mas_usado = (
 )
 
 # =========================================================
-# MÓDULO VISTA GENERAL EJECUTIVA
-# =========================================================
-if modulo == "📊 Vista General Ejecutiva":
-    mostrar_dashboard(
-        df_real=df_real,
-        df_forecast_auto=df_forecast_auto,
-        df_comparacion=df_comparacion,
-        df_sim=df_sim,
-        df_opt=df_opt,
-        df_tvu=df_tvu,
-        resumen_vencimientos=resumen_vencimientos,
-        kpis_tvu=kpis_tvu,
-        df_ahorro=df_ahorro_forecast,
-        kpis_ahorro=kpis_ahorro_forecast,
-    )
-    st.stop()
-# =========================================================
 # CONFIGURACIÓN DEL MÓDULO PRONÓSTICOS E INVENTARIOS
 # =========================================================
 if modo_pronostico == "Manual: elegir un método":
@@ -1634,3 +1617,20 @@ with tab6:
             mime="text/csv",
             use_container_width=True,
         )
+# =========================================================
+# MÓDULO VISTA GENERAL EJECUTIVA
+# =========================================================
+if modulo == "📊 Vista General Ejecutiva":
+    mostrar_dashboard(
+        df_real=df_real,
+        df_forecast_auto=df_forecast_auto,
+        df_comparacion=df_comparacion,
+        df_sim=df_sim,
+        df_opt=df_opt,
+        df_tvu=df_tvu,
+        resumen_vencimientos=resumen_vencimientos,
+        kpis_tvu=kpis_tvu,
+        df_ahorro=df_ahorro_forecast,
+        kpis_ahorro=kpis_ahorro_forecast,
+    )
+    st.stop()
