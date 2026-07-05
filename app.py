@@ -24,8 +24,7 @@ from visualizacion import (
     grafico_tradeoff,
     formatear_comparacion,
 )
-from dashboard_ejecutivo_nuevo import mostrar_dashboard_ejecutivo
-
+from dashboard_ejecutivo_nuevo import mostrar_dashboard
 warnings.filterwarnings("ignore")
 
 
@@ -1107,7 +1106,7 @@ if modulo == "📊 Vista General Ejecutiva":
 # MÓDULO VISTA GENERAL EJECUTIVA
 # =========================================================
 if modulo == "📊 Vista General Ejecutiva":
-    mostrar_dashboard_ejecutivo(
+    mostrar_dashboard(
         df_real=df_real,
         df_forecast_auto=df_forecast_auto,
         df_comparacion=df_comparacion,
