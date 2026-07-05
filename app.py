@@ -3,9 +3,11 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+
 # =========================================================
 # IMPORTACIÓN DE MÓDULOS LOCALES
 # =========================================================
+from dashboard_ejecutivo import mostrar_dashboard
 from datos import generar_demanda_sintetica, convertir_a_mensual
 from generar_pronosticos import (
     METODOS_PRONOSTICO,
